@@ -24,7 +24,7 @@ MY_EMAIL = "jkkothari@wpi.edu"
 # the COLLABORATORS list contains tuples of 2 items, the name of the helper
 # and their contribution to your homework
 COLLABORATORS = [ 
-    ('Claire Danaher', 'Helped me understand how to initiate "self" objects in Python'),  
+    ('Claire Danaher', 'Helped me understand how to work with "self" objects in Python'),  
     ('Kavin Chandrasekaran', 'Helped me understand how to call the stem method from PorterStemmer class & cross-verified number of unique terms throughout the corpus after stemming'),
     ]
 
@@ -98,8 +98,7 @@ class Index(object):
         stemmed_set=set(stemmed)
 #   The use of method list is to convert given set into a list so as to store in dataframe ahead  
         stemmed=list(stemmed_set)
-#        df=pd.DataFrame(data=stemmed)
-#        print(df.shape)
+
         for filename in glob.glob(base_path+'*.txt',recursive=True):
             file=open(filename,'r',encoding="utf8")
             text = file.read()
@@ -116,7 +115,7 @@ class Index(object):
             doc_id+=1
         
         self._inverted_index=df_doc_index.groupby(['term'])['index'].apply(list).to_dict()
-#        print(len(self._inverted_index))
+
         return num_files_indexed
     
 
@@ -165,6 +164,7 @@ class Index(object):
         tokens=[]
         tokens=Index.tokenize(self,text)
         stemmed=Index.stemming(self,tokens)
+        ids=[]
         
         if(len(stemmed)==1):
             ids = self._inverted_index[stemmed[0]]    
