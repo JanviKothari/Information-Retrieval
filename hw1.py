@@ -18,8 +18,8 @@ import pandas as pd
 import glob
 
 MY_NAME = "Janvi Kothari"
-MY_ANUM  = 167999376 # put your WPI numerical ID here
-MY_EMAIL = "jkkothari@wpi.edu"
+MY_ANUM  = ****** # put your WPI numerical ID here
+MY_EMAIL = "*****@wpi.edu"
 
 # the COLLABORATORS list contains tuples of 2 items, the name of the helper
 # and their contribution to your homework
